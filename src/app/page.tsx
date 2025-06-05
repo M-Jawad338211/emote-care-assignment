@@ -1,5 +1,3 @@
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import CTASection from "@/components/homepage/cta-section";
 import FeaturesSection from "@/components/homepage/features-section";
 import HeroSection from "@/components/homepage/hero-section";
@@ -10,25 +8,20 @@ import TestimonialsSection from "@/components/homepage/testimonials-section";
 
 export default function HomePage() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <Header />
-      <section className="flex-1">
-        <HeroSection />
+    <section id="main" className="flex-1">
+      <HeroSection />
 
-        <SearchSection />
+      <SearchSection />
 
-        <FeaturesSection />
+      <FeaturesSection />
 
-        <ProcessSection />
+      <ProcessSection />
 
-        <StatsSection />
+      <StatsSection />
 
-        <TestimonialsSection />
+      <TestimonialsSection />
 
-        <CTASection />
-      </section>
-
-      <Footer />
-    </main>
+      <CTASection />
+    </section>
   );
 }

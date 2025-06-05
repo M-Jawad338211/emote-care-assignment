@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 // import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "../providers/providers";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
 
 // const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          <main className="flex flex-col min-h-screen">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </Providers>
       </body>
     </html>
   );

@@ -1,11 +1,9 @@
 "use client";
 
-import { Suspense, useState } from "react";
-import { Header } from "@/components/layout/header";
-import { Footer } from "@/components/layout/footer";
 import { TherapistFilters } from "@/components/therapists/therapist-filters";
 import { TherapistGrid } from "@/components/therapists/therapist-grid";
 import { TherapistGridSkeleton } from "@/components/therapists/therapist-grid-skeleton";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -14,9 +12,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
 import { Filter } from "lucide-react";
 import { useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
 
 function FilterButton() {
   const [open, setOpen] = useState(false);
@@ -65,53 +63,47 @@ function FilterButton() {
 
 export default function FindTherapistPage() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-
-      <main className="flex-1">
-        {/* Page Header */}
-        <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
-          <div className="container px-4 md:px-6 mx-auto">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Find Your Therapist
-                </h1>
-                <p className="max-w-[700px] text-muted-foreground md:text-xl">
-                  Browse our network of licensed professionals and find the
-                  perfect match for your needs.
-                </p>
-              </div>
+    <section id="main" className="flex-1">
+      {/* Page Header */}
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-gradient-to-b from-blue-50 to-white dark:from-blue-950/20 dark:to-background">
+        <div className="container px-4 md:px-6 mx-auto">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Find Your Therapist
+              </h1>
+              <p className="max-w-[700px] text-muted-foreground md:text-xl">
+                Browse our network of licensed professionals and find the
+                perfect match for your needs.
+              </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Main Content */}
-        <section className="w-full py-12">
-          <div className="container px-4 md:px-6 mx-auto">
-            {/* Mobile Filter Button */}
-            <div className="lg:hidden mb-6 text-end">
-              <FilterButton />
+      {/* Main Content */}
+      <section className="w-full py-12">
+        <div className="container px-4 md:px-6 mx-auto">
+          {/* Mobile Filter Button */}
+          <div className="lg:hidden mb-6 text-end">
+            <FilterButton />
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+            {/* Desktop Filters Sidebar */}
+            <div className="hidden lg:block space-y-6">
+              <TherapistFilters />
             </div>
 
-            <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-              {/* Desktop Filters Sidebar */}
-              <div className="hidden lg:block space-y-6">
-                <TherapistFilters />
-              </div>
-
-              {/* Therapist Grid */}
-              <div>
-                <Suspense fallback={<TherapistGridSkeleton />}>
-                  <TherapistGrid />
-                </Suspense>
-              </div>
+            {/* Therapist Grid */}
+            <div>
+              <Suspense fallback={<TherapistGridSkeleton />}>
+                <TherapistGrid />
+              </Suspense>
             </div>
           </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
+        </div>
+      </section>
+    </section>
   );
 }

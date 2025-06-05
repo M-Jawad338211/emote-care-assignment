@@ -1,7 +1,5 @@
 "use client";
 
-import { Footer } from "@/components/layout/footer";
-import { Header } from "@/components/layout/header";
 import AboutTherapist from "@/components/therapist-profile/about";
 import Approach from "@/components/therapist-profile/approach";
 import InfoCards from "@/components/therapist-profile/info-cards";
@@ -40,23 +38,19 @@ export default function TherapistProfilePage() {
 
   if (isLoading) {
     return (
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-1">
-          <Skeleton className="w-full h-48 md:h-64 lg:h-80" />
-          <div className="container px-4 md:px-6 mx-auto -mt-16 relative z-10">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <Skeleton className="h-32 w-32 rounded-full" />
-              <div className="flex-1 space-y-2 pt-2">
-                <Skeleton className="h-8 w-64" />
-                <Skeleton className="h-4 w-48" />
-                <Skeleton className="h-16 w-full" />
-              </div>
+      <section id="main" className="flex-1">
+        <Skeleton className="w-full h-48 md:h-64 lg:h-80" />
+        <div className="container px-4 md:px-6 mx-auto -mt-16 relative z-10">
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            <Skeleton className="h-32 w-32 rounded-full" />
+            <div className="flex-1 space-y-2 pt-2">
+              <Skeleton className="h-8 w-64" />
+              <Skeleton className="h-4 w-48" />
+              <Skeleton className="h-16 w-full" />
             </div>
           </div>
-        </main>
-        <Footer />
-      </div>
+        </div>
+      </section>
     );
   }
 
@@ -65,20 +59,19 @@ export default function TherapistProfilePage() {
       notFound();
     }
     return (
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-1 container px-4 md:px-6 mx-auto py-12">
-          <Alert variant="destructive">
-            <AlertCircle className="h-4 w-4" />
-            <AlertDescription>
-              {error instanceof Error
-                ? error.message
-                : "Failed to load therapist. Please try again."}
-            </AlertDescription>
-          </Alert>
-        </main>
-        <Footer />
-      </div>
+      <section
+        id="main"
+        className="flex-1 container px-4 md:px-6 mx-auto py-12"
+      >
+        <Alert variant="destructive">
+          <AlertCircle className="h-4 w-4" />
+          <AlertDescription>
+            {error instanceof Error
+              ? error.message
+              : "Failed to load therapist. Please try again."}
+          </AlertDescription>
+        </Alert>
+      </section>
     );
   }
 
@@ -87,52 +80,46 @@ export default function TherapistProfilePage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
+    <section id="main" className="flex-1">
+      {/* Hero Section with Cover Image */}
+      <div className="relative w-full h-48 md:h-64 lg:h-80 bg-muted">
+        <Image
+          src={therapist.coverImage}
+          alt={`${therapist.name} cover`}
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+      </div>
 
-      <main className="flex-1">
-        {/* Hero Section with Cover Image */}
-        <div className="relative w-full h-48 md:h-64 lg:h-80 bg-muted">
-          <Image
-            src={therapist.coverImage}
-            alt={`${therapist.name} cover`}
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
-        </div>
-
-        <div className="container px-4 md:px-6 mx-auto -mt-16 relative z-10">
-          <ProfileHeader therapist={therapist} />
-          {/* Main Content */}
-          <div className="grid md:grid-cols-3 gap-6 mt-8">
-            <InfoCards therapist={therapist} />
-            {/* Right Column - Tabs */}
-            <div className="md:col-span-2">
-              <Tabs defaultValue="about">
-                <TabsList className="grid w-full grid-cols-3">
-                  <TabsTrigger value="about">About</TabsTrigger>
-                  <TabsTrigger value="approach">Approach</TabsTrigger>
-                  <TabsTrigger value="reviews">Reviews</TabsTrigger>
-                </TabsList>
-                <TabsContent value="about" className="p-4 pt-6">
-                  <AboutTherapist therapist={therapist} />
-                </TabsContent>
-                <TabsContent value="approach" className="p-4 pt-6">
-                  <Approach therapist={therapist} />
-                </TabsContent>
-                <TabsContent value="reviews" className="p-4 pt-6">
-                  <Reviews therapist={therapist} />
-                </TabsContent>
-              </Tabs>
-            </div>
+      <div className="container px-4 md:px-6 mx-auto -mt-16 relative z-10">
+        <ProfileHeader therapist={therapist} />
+        {/* Main Content */}
+        <div className="grid md:grid-cols-3 gap-6 mt-8">
+          <InfoCards therapist={therapist} />
+          {/* Right Column - Tabs */}
+          <div className="md:col-span-2">
+            <Tabs defaultValue="about">
+              <TabsList className="grid w-full grid-cols-3">
+                <TabsTrigger value="about">About</TabsTrigger>
+                <TabsTrigger value="approach">Approach</TabsTrigger>
+                <TabsTrigger value="reviews">Reviews</TabsTrigger>
+              </TabsList>
+              <TabsContent value="about" className="p-4 pt-6">
+                <AboutTherapist therapist={therapist} />
+              </TabsContent>
+              <TabsContent value="approach" className="p-4 pt-6">
+                <Approach therapist={therapist} />
+              </TabsContent>
+              <TabsContent value="reviews" className="p-4 pt-6">
+                <Reviews therapist={therapist} />
+              </TabsContent>
+            </Tabs>
           </div>
         </div>
-      </main>
-
-      <div className="mt-16">
-        <Footer />
       </div>
-    </div>
+
+      <div className="mt-16"></div>
+    </section>
   );
 }

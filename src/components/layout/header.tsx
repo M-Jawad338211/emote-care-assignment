@@ -28,19 +28,19 @@ export function Header() {
               Find a Therapist
             </Link>
             <Link
-              href="/how-it-works"
+              href="#how-it-works"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
               How It Works
             </Link>
             <Link
-              href="/for-therapists"
+              href="#for-therapists"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
               For Therapists
             </Link>
             <Link
-              href="/resources"
+              href="#resources"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
               Resources
@@ -69,7 +69,7 @@ export function Header() {
             <div className="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
               <div className="flex flex-col space-y-3">
                 <Link
-                  href="/find-therapist"
+                  href="#find-therapist"
                   onClick={() => setIsOpen(false)}
                   className="transition-colors hover:text-foreground/80 text-foreground/60"
                 >
@@ -83,14 +83,14 @@ export function Header() {
                   How It Works
                 </Link>
                 <Link
-                  href="/for-therapists"
+                  href="#for-therapists"
                   onClick={() => setIsOpen(false)}
                   className="transition-colors hover:text-foreground/80 text-foreground/60"
                 >
                   For Therapists
                 </Link>
                 <Link
-                  href="/resources"
+                  href="#resources"
                   onClick={() => setIsOpen(false)}
                   className="transition-colors hover:text-foreground/80 text-foreground/60"
                 >

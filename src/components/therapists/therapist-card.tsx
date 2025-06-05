@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Star, MapPin, Video } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { BookSessionButton } from "@/components/book-session-button";
+import { BookSessionButton } from "@/components/booking/book-session-button";
 import type { Therapist } from "@/lib/types";
 
 interface TherapistCardProps {

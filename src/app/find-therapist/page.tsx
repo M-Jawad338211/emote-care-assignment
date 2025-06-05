@@ -1,11 +1,11 @@
 "use client";
 
 import { Suspense, useState } from "react";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
-import { TherapistFilters } from "@/components/therapist-filters";
-import { TherapistGrid } from "@/components/therapist-grid";
-import { TherapistGridSkeleton } from "@/components/therapist-grid-skeleton";
+import { Header } from "@/components/layout/header";
+import { Footer } from "@/components/layout/footer";
+import { TherapistFilters } from "@/components/therapists/therapist-filters";
+import { TherapistGrid } from "@/components/therapists/therapist-grid";
+import { TherapistGridSkeleton } from "@/components/therapists/therapist-grid-skeleton";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,

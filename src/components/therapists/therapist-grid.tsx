@@ -2,9 +2,9 @@
 
 import { useSearchParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import { TherapistCard } from "@/components/therapist-card";
-import { TherapistGridSkeleton } from "@/components/therapist-grid-skeleton";
-import { TherapistSort } from "@/components/therapist-sort";
+import { TherapistCard } from "@/components/therapists/therapist-card";
+import { TherapistGridSkeleton } from "@/components/therapists/therapist-grid-skeleton";
+import { TherapistSort } from "@/components/therapists/therapist-sort";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { AlertCircle } from "lucide-react";
 

@@ -45,35 +45,35 @@ export default function SearchSection() {
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
               <Badge
-                className="cursor-pointer hover:bg-gray-100"
+                className="cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => handleSearch("Anxiety")}
                 variant="outline"
               >
                 Anxiety
               </Badge>
               <Badge
-                className="cursor-pointer hover:bg-gray-100"
+                className="cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => handleSearch("Depression")}
                 variant="outline"
               >
                 Depression
               </Badge>
               <Badge
-                className="cursor-pointer hover:bg-gray-100"
+                className="cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => handleSearch("Couples Therapy")}
                 variant="outline"
               >
                 Couples Therapy
               </Badge>
               <Badge
-                className="cursor-pointer hover:bg-gray-100"
+                className="cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => handleSearch("PTSD")}
                 variant="outline"
               >
                 PTSD
               </Badge>
               <Badge
-                className="cursor-pointer hover:bg-gray-100"
+                className="cursor-pointer hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 onClick={() => handleSearch("Family Therapy")}
                 variant="outline"
               >

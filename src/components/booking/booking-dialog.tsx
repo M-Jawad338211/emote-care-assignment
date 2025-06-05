@@ -28,7 +28,7 @@ interface BookingFormData {
   reason: string;
 }
 
-export function GlobalBookingDialog() {
+export function BookingDialog() {
   const { isBookingOpen, selectedTherapist, closeBooking } = useBooking();
   const [formData, setFormData] = useState<BookingFormData>({
     name: "",
